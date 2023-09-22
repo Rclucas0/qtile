@@ -234,8 +234,8 @@ for i in groups:
 
 def init_layout_theme():
     return {"margin":5,
-            "border_width":2,
-            "border_focus": "#FF79C6",
+            "border_width":1,
+            "border_focus": "#A77AC4",
             "border_normal": "#4c566a"
             }
 
@@ -270,17 +270,35 @@ layouts = [
 
 # COLORS FOR THE BAR
 #Theme name : ArcoLinux Dracula
+#def init_colors():
+#    return [["#000000", "#000000"], # color 0
+#            ["#282A36", "#282A36"], # color 1
+#            ["#F8F8F2", "#F8F8F2"], # color 2
+#            ["#F1FA8C", "#F1FA8C"], # color 3
+#            ["#BD93F9", "#BD93F9"], # color 4
+#            ["#FF79C6", "#FF79C6"], # color 5
+#            ["#8BE9FD", "#8BE9FD"], # color 6
+#            ["#BFBFBF", "#BFBFBF"], # color 7
+#            ["#4D4D4D", "#4D4D4D"], # color 8
+#            ["#FF5555", "#FF5555"]] # color 9
+
+# DT TOP BAR COLORS
+
 def init_colors():
-    return [["#000000", "#000000"], # color 0
-            ["#282A36", "#282A36"], # color 1
-            ["#F8F8F2", "#F8F8F2"], # color 2
-            ["#F1FA8C", "#F1FA8C"], # color 3
-            ["#BD93F9", "#BD93F9"], # color 4
-            ["#FF79C6", "#FF79C6"], # color 5
-            ["#8BE9FD", "#8BE9FD"], # color 6
-            ["#BFBFBF", "#BFBFBF"], # color 7
-            ["#4D4D4D", "#4D4D4D"], # color 8
-            ["#FF5555", "#FF5555"]] # color 9
+    return [["#282a36", "#282136"], # panel background
+            ["#434758", "#434758"], # background for current screen tab
+            ["#ffffff", "#ffffff"], # font color for group names
+            ["#ff5555", "#ff5555"], # background color for layout widget
+            ["#000000", "#000000"], # background for other screen tabs
+            ["#A77AC4", "#A77AC4"], # gark green gradient for other screen tabs
+            ["#50fa7b", "#cd1f3f"], # background color for network widget
+            ["#7197E7", "#7197E7"], # background color for pacman widget
+            ["#9aedfe", "#9aedfe"], # background color for cmus widget
+            ["#000000", "#000000"], # background color for clock widget
+		    ["#434758", "#434758"]] # background color for systray
+
+
+
 
 
 colors = init_colors()
@@ -300,8 +318,8 @@ def init_widgets_list():
     prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
     widgets_list = [
                widget.GroupBox(font="FontAwesome",
-                        fontsize = 16,
-                        margin_y = -1,
+                        fontsize = 13,
+                        margin_y = 2,
                         margin_x = 0,
                         padding_y = 6,
                         padding_x = 5,
@@ -321,20 +339,20 @@ def init_widgets_list():
                         foreground = colors[2],
                         background = colors[1]
                         ),
-               widget.CurrentLayout(
-                        font = "Noto Sans Bold",
-                        foreground = colors[5],
-                        background = colors[1]
-                        ),
-               widget.Sep(
-                        linewidth = 1,
-                        padding = 10,
-                        foreground = colors[2],
-                        background = colors[1]
-                        ),
+              # widget.CurrentLayout(
+              #          font = "Noto Sans Bold",
+              #          foreground = colors[5],
+              #          background = colors[1]
+              #          ),
+              # widget.Sep(
+              #          linewidth = 1,
+              #          padding = 10,
+              #          foreground = colors[2],
+              #          background = colors[1]
+              #          ),
                widget.WindowName(font="Noto Sans",
                         fontsize = 12,
-                        foreground = colors[5],
+                        foreground = colors[2],
                         background = colors[1],
                         ),
                # widget.Net(
@@ -455,17 +473,57 @@ def init_widgets_list():
                #          foreground = colors[2],
                #          background = colors[1]
                #          ),
+			   widget.TextBox(
+						text='',
+						background = colors[1],
+						foreground = colors[7],
+						padding=0,
+						fontsize=37
+						),
+			   widget.CurrentLayout(
+						font = "Noto Sans Bold",
+                        foreground = colors[2],
+                        background = colors[7]
+                        ),
+               widget.TextBox(
+						text='',
+						background = colors[7],
+						foreground = colors[5],
+						padding=0,
+						fontsize=37
+						),
+			   widget.TextBox(
+						text='',
+						foreground = colors[2],
+						background = colors[5],
+						padding=0,
+						fontsize=14
+						),
+			   widget.Net(
+						#format='{down:.0f}{down_suffix} ↓↑ {up:.0f}{up_suffix}' 
+						#interface = "enp3s0",
+						foreground = colors[2],
+						background = colors[5],
+						padding = 5
+						),
+			   widget.TextBox(
+						text='',
+						background = colors[5],
+						foreground = colors[7],
+						padding=0,
+						fontsize=37
+						),
                widget.TextBox(
                         font="FontAwesome",
                         text="  ",
-                        foreground=colors[3],
-                        background=colors[1],
+                        foreground=colors[2],
+                        background=colors[7],
                         padding = 0,
                         fontsize=16
                         ),
                widget.Clock(
-                        foreground = colors[5],
-                        background = colors[1],
+                        foreground = colors[2],
+                        background = colors[7],
                         fontsize = 12,
                         format="%Y-%m-%d %H:%M"
                         ),
@@ -475,8 +533,16 @@ def init_widgets_list():
                #          foreground = colors[2],
                #          background = colors[1]
                #          ),
+               widget.TextBox(
+						text='',
+						background = colors[7],
+						foreground = colors[5],
+						padding=0,
+						fontsize=37
+						),
                widget.Systray(
-                        background=colors[1],
+                        background = colors[5],
+						foreground = colors[2],
                         icon_size=20,
                         padding = 4
                         ),
@@ -499,8 +565,8 @@ widgets_screen2 = init_widgets_screen2()
 
 
 def init_screens():
-    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), size=26, opacity=0.8)),
-            Screen(top=bar.Bar(widgets=init_widgets_screen2(), size=26, opacity=0.8))]
+    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), size=20, opacity=0.5)),
+            Screen(top=bar.Bar(widgets=init_widgets_screen2(), size=20, opacity=0.5))]
 screens = init_screens()
 
 

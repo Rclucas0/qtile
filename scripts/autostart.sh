@@ -37,7 +37,7 @@ feh --bg-fill /usr/share/backgrounds/arcolinux/koi-fishes-1920x1080.png &
 #wallpaper for other Arch based systems
 #feh --bg-fill /usr/share/archlinux-tweak-tool/data/wallpaper/wallpaper.png &
 #start the conky to learn the shortcuts
-(conky -c $HOME/.config/qtile/scripts/system-overview) &
+#(conky -c $HOME/.config/qtile/scripts/system-overview) &
 
 #start sxhkd to replace Qtile native key-bindings
 run sxhkd -c ~/.config/qtile/sxhkd/sxhkdrc &
@@ -46,7 +46,7 @@ run sxhkd -c ~/.config/qtile/sxhkd/sxhkdrc &
 #starting utility applications at boot time
 run variety &
 run nm-applet &
-run pamac-tray &
+#run pamac-tray &
 run xfce4-power-manager &
 numlockx on &
 blueberry-tray &
