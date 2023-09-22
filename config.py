@@ -24,7 +24,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-
+#import "https://www.nerdfonts.com/assets/css/webfont.css"
 import os
 import re
 import socket
@@ -181,6 +181,17 @@ keys.extend([
     Key([mod,"shift"], "Left", lazy.function(window_to_previous_screen, switch_screen=True)),
 ])
 
+
+
+ # unicode icons for top bar
+ # virus = '\e074'
+ # Seedling = '\f4d8'
+
+
+
+
+
+
 groups = []
 
 # FOR QWERTY KEYBOARDS
@@ -188,9 +199,9 @@ group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0",]
 
 # FOR AZERTY KEYBOARDS
 #group_names = ["ampersand", "eacute", "quotedbl", "apostrophe", "parenleft", "section", "egrave", "exclam", "ccedilla", "agrave",]
-
-group_labels = ["1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 ", "0",]
-#group_labels = ["", "", "", "", "", "", "", "", "", "",]
+group_labels = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " ",]
+#group_labels = ["1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 ", "0",]
+#group_labels = ["Seedling", "", "", "", "", "", "", "", "", "",]
 #group_labels = ["Web", "Edit/chat", "Image", "Gimp", "Meld", "Video", "Vb", "Files", "Mail", "Music",]
 
 group_layouts = ["monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall",]
@@ -224,7 +235,7 @@ for i in groups:
 def init_layout_theme():
     return {"margin":5,
             "border_width":2,
-            "border_focus": "#5e81ac",
+            "border_focus": "#FF79C6",
             "border_normal": "#4c566a"
             }
 
@@ -245,17 +256,31 @@ layouts = [
 
 # COLORS FOR THE BAR
 #Theme name : ArcoLinux Default
+#def init_colors():
+#    return [["#2F343F", "#2F343F"], # color 0
+#            ["#2F343F", "#2F343F"], # color 1
+#            ["#c0c5ce", "#c0c5ce"], # color 2
+#            ["#fba922", "#fba922"], # color 3
+#            ["#3384d0", "#3384d0"], # color 4
+#            ["#f3f4f5", "#f3f4f5"], # color 5
+#            ["#cd1f3f", "#cd1f3f"], # color 6
+#            ["#62FF00", "#62FF00"], # color 7
+#            ["#6790eb", "#6790eb"], # color 8
+#            ["#a9a9a9", "#a9a9a9"]] # color 9
+
+# COLORS FOR THE BAR
+#Theme name : ArcoLinux Dracula
 def init_colors():
-    return [["#2F343F", "#2F343F"], # color 0
-            ["#2F343F", "#2F343F"], # color 1
-            ["#c0c5ce", "#c0c5ce"], # color 2
-            ["#fba922", "#fba922"], # color 3
-            ["#3384d0", "#3384d0"], # color 4
-            ["#f3f4f5", "#f3f4f5"], # color 5
-            ["#cd1f3f", "#cd1f3f"], # color 6
-            ["#62FF00", "#62FF00"], # color 7
-            ["#6790eb", "#6790eb"], # color 8
-            ["#a9a9a9", "#a9a9a9"]] # color 9
+    return [["#000000", "#000000"], # color 0
+            ["#282A36", "#282A36"], # color 1
+            ["#F8F8F2", "#F8F8F2"], # color 2
+            ["#F1FA8C", "#F1FA8C"], # color 3
+            ["#BD93F9", "#BD93F9"], # color 4
+            ["#FF79C6", "#FF79C6"], # color 5
+            ["#8BE9FD", "#8BE9FD"], # color 6
+            ["#BFBFBF", "#BFBFBF"], # color 7
+            ["#4D4D4D", "#4D4D4D"], # color 8
+            ["#FF5555", "#FF5555"]] # color 9
 
 
 colors = init_colors()
